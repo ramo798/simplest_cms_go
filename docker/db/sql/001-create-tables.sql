@@ -7,7 +7,7 @@ CREATE TABLE articles
   title VARCHAR(240),
   main_text VARCHAR(3000),
   tag VARCHAR(30),
-  release_date DATE,
+  release_date VARCHAR(30),
   PRIMARY KEY (id)
 );
 INSERT INTO articles (users_id,title,main_text,tag,release_date) VALUES ("ramo123", "タイトル","メインテキスト","タグタグ","2019-09-07");

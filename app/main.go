@@ -1,7 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"app/handler"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Printf("Hello World\n")
+	router := gin.Default()
+	router.Use(gin.Logger())
+
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"*"}
+	router.Use(cors.New(config))
+
+	router.GET("/", func(c *gin.Context) {
+		c.String(200, "hello, API")
+	})
+
+	router.GET("/article/all", handler.GetArticleAll)
+
+	router.Run(":8080")
+
 }
