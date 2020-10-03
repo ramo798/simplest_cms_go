@@ -21,6 +21,8 @@ func main() {
 
 	router.GET("/article/all", handler.GetArticleAll)
 
+	router.GET("/article/id/:no", handler.GetArticleOnNumber)
+
 	router.Run(":8080")
 
 }
